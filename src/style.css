@@ -550,3 +550,43 @@ body {
 
   font-weight: bold;
 }
+.success-message {
+  color: green;
+
+  margin-top: 20px;
+
+  font-weight: bold;
+
+  animation: fadeMessage 0.5s ease;
+}
+
+@keyframes fadeMessage {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.dark-mode {
+  background-color: #111;
+  color: white;
+
+  min-height: 100vh;
+}
+
+.dark-mode .product-card,
+.dark-mode .cart-item,
+.dark-mode .details-page,
+.dark-mode .checkout-form {
+  background-color: #222;
+  color: white;
+}
+
+.dark-mode button {
+  background-color: white;
+  color: black;
+}

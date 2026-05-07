@@ -92,6 +92,8 @@ function Home(props) {
         Featured Products
       </h2>
 
+      {/* Search */}
+
       <div className="search-container">
         <input
           type="text"
@@ -102,6 +104,8 @@ function Home(props) {
           }
         />
       </div>
+
+      {/* Category Filter */}
 
       <div className="category-filter">
         <select
@@ -133,6 +137,8 @@ function Home(props) {
         </select>
       </div>
 
+      {/* Sorting */}
+
       <div className="sort-filter">
         <select
           onChange={(event) =>
@@ -159,17 +165,23 @@ function Home(props) {
         </select>
       </div>
 
+      {/* Loading */}
+
       {loading && (
         <h2 className="message">
           Loading products...
         </h2>
       )}
 
+      {/* Error */}
+
       {error && (
         <h2 className="message error">
           {error}
         </h2>
       )}
+
+      {/* Products */}
 
       <div className="products">
         {sortedProducts.map((product) => (
@@ -181,6 +193,9 @@ function Home(props) {
             image={product.image}
             addToCart={() =>
               props.addToCart(product)
+            }
+            addToWishlist={() =>
+              props.addToWishlist(product)
             }
           />
         ))}

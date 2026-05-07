@@ -18,6 +18,12 @@ function ProductCard(props) {
       <button onClick={props.addToCart}>
         Add to Cart
       </button>
+
+      <button
+        onClick={props.addToWishlist}
+      >
+        ❤️ Wishlist
+      </button>
     </div>
   )
 }

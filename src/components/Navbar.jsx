@@ -24,6 +24,9 @@ function Navbar(props) {
       </nav>
 
       <div className="nav-right">
+        <button onClick={props.toggleDarkMode}>
+  🌙
+</button>
         <input
           type="text"
           placeholder="Search products..."
