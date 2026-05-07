@@ -17,6 +17,9 @@ import Checkout from "./pages/Checkout"
 import Success from "./pages/Success"
 import Wishlist from "./pages/Wishlist"
 import ProductDetails from "./pages/ProductDetails"
+import Login from "./pages/Login"
+import Signup from "./pages/Signup"
+import ProtectedRoute from "./components/ProtectedRoute"
 
 function App() {
   const [cartItems, setCartItems] =
@@ -198,50 +201,55 @@ function App() {
         />
 
         <Route
-          path="/cart"
-          element={
-            <Cart
-              cartItems={cartItems}
-              removeFromCart={
-                handleRemoveFromCart
-              }
-              increaseQuantity={
-                increaseQuantity
-              }
-              decreaseQuantity={
-                decreaseQuantity
-              }
-            />
-          }
-        />
-
-        <Route
-          path="/checkout"
-          element={
-            <Checkout
-              cartItems={cartItems}
-            />
-          }
-        />
+  path="/cart"
+  element={
+    <ProtectedRoute>
+      <Cart
+        cartItems={cartItems}
+        removeFromCart={
+          handleRemoveFromCart
+        }
+        increaseQuantity={
+          increaseQuantity
+        }
+        decreaseQuantity={
+          decreaseQuantity
+        }
+      />
+    </ProtectedRoute>
+  }
+/>
+       <Route
+  path="/checkout"
+  element={
+    <ProtectedRoute>
+      <Checkout
+        cartItems={cartItems}
+      />
+    </ProtectedRoute>
+  }
+/>
 
         <Route
           path="/success"
           element={<Success />}
         />
 
-        <Route
-          path="/wishlist"
-          element={
-            <Wishlist
-              wishlistItems={
-                wishlistItems
-              }
-              removeFromWishlist={
-                removeFromWishlist
-              }
-            />
-          }
-        />
+     <Route
+  path="/wishlist"
+  element={
+    <ProtectedRoute>
+      <Wishlist
+        wishlistItems={
+          wishlistItems
+        }
+        removeFromWishlist={
+          removeFromWishlist
+        }
+      />
+    </ProtectedRoute>
+  }
+/>
 
         <Route
           path="/product/:id"
@@ -253,6 +261,15 @@ function App() {
             />
           }
         />
+        <Route
+  path="/login"
+  element={<Login />}
+/>
+
+<Route
+  path="/signup"
+  element={<Signup />}
+/>
       </Routes>
     </BrowserRouter>
   )

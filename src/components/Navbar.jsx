@@ -1,13 +1,25 @@
 import { Link } from "react-router-dom"
 
-function Navbar(props) {
-  return (
-    <header className="navbar">
-      <div className="logo">
-        <h1>ShopEasy</h1>
-      </div>
+import { signOut } from "firebase/auth"
 
-      <nav className="nav-links">
+import { auth } from "../firebase"
+
+function Navbar(props) {
+  function handleLogout() {
+    signOut(auth)
+  }
+
+  return (
+    <nav className="navbar">
+      {/* Logo */}
+
+      <h2 className="logo">
+        ShopEasy
+      </h2>
+
+      {/* Navigation Links */}
+
+      <div className="nav-links">
         <Link to="/">Home</Link>
 
         <Link to="/products">
@@ -21,31 +33,38 @@ function Navbar(props) {
         <Link to="/contact">
           Contact
         </Link>
-      </nav>
 
-      <div className="nav-right">
-        <button onClick={props.toggleDarkMode}>
-  🌙
-</button>
-        <input
-          type="text"
-          placeholder="Search products..."
-          className="search-bar"
-        />
-
-        <Link to="/cart" className="cart">
-          🛒
-
-          <span className="cart-badge">
-            {props.cartCount}
-          </span>
+        <Link to="/wishlist">
+          Wishlist
         </Link>
 
-        <div className="menu-icon">
-          ☰
-        </div>
+        <Link to="/cart">
+          Cart ({props.cartCount})
+        </Link>
+
+        <Link to="/login">
+          Login
+        </Link>
+
+        <Link to="/signup">
+          Signup
+        </Link>
+
+        {/* Dark Mode */}
+
+        <button
+          onClick={props.toggleDarkMode}
+        >
+          🌙
+        </button>
+
+        {/* Logout */}
+
+        <button onClick={handleLogout}>
+          Logout
+        </button>
       </div>
-    </header>
+    </nav>
   )
 }
 
