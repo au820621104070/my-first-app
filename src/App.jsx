@@ -12,21 +12,24 @@ function App() {
       id: 1,
       name: "Wireless Headphones",
       price: "$99",
-      image: "https://via.placeholder.com/200"
+      image:
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e"
     },
 
     {
       id: 2,
       name: "Smart Watch",
       price: "$149",
-      image: "https://via.placeholder.com/200"
+      image:
+        "https://images.unsplash.com/photo-1523275335684-37898b6baf30"
     },
 
     {
       id: 3,
       name: "Gaming Mouse",
       price: "$59",
-      image: "https://via.placeholder.com/200"
+      image:
+        "https://images.unsplash.com/photo-1527814050087-3793815479db"
     }
   ]
 
@@ -39,6 +42,10 @@ function App() {
       <Navbar cartCount={cartCount} />
 
       <Hero />
+  
+      <h2 className="section-title">
+        Featured Products
+      </h2>
 
       <div className="products">
         {products.map((product) => (
