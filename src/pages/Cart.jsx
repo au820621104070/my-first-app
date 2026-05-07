@@ -1,6 +1,9 @@
+import { Link } from "react-router-dom"
+
 function Cart(props) {
   const totalPrice = props.cartItems.reduce(
-    (total, item) => total + item.price,
+    (total, item) =>
+      total + item.price * item.quantity,
     0
   )
 
@@ -12,18 +15,46 @@ function Cart(props) {
         <p>No items added yet.</p>
       ) : (
         <>
-          {props.cartItems.map((item, index) => (
+          {props.cartItems.map((item) => (
             <div
-              key={index}
+              key={item.id}
               className="cart-item"
             >
-              <h3>{item.name}</h3>
+              <h3>{item.title}</h3>
 
               <p>${item.price}</p>
 
+              <div className="quantity-controls">
+                <button
+                  onClick={() =>
+                    props.decreaseQuantity(
+                      item.id
+                    )
+                  }
+                >
+                  -
+                </button>
+
+                <span>
+                  {item.quantity}
+                </span>
+
+                <button
+                  onClick={() =>
+                    props.increaseQuantity(
+                      item.id
+                    )
+                  }
+                >
+                  +
+                </button>
+              </div>
+
               <button
                 onClick={() =>
-                  props.removeFromCart(index)
+                  props.removeFromCart(
+                    props.cartItems.indexOf(item)
+                  )
                 }
               >
                 Remove
@@ -32,8 +63,14 @@ function Cart(props) {
           ))}
 
           <h2 className="total-price">
-            Total: ${totalPrice}
+            Total: ${totalPrice.toFixed(2)}
           </h2>
+
+          <Link to="/checkout">
+            <button className="checkout-btn">
+              Proceed to Checkout
+            </button>
+          </Link>
         </>
       )}
     </div>
