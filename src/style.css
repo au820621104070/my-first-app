@@ -451,3 +451,71 @@ body {
 
   font-size: 16px;
 }
+.details-page {
+  display: flex;
+
+  gap: 50px;
+
+  padding: 50px;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+}
+
+.details-page img {
+  width: 300px;
+
+  object-fit: contain;
+
+  background-color: white;
+
+  padding: 20px;
+
+  border-radius: 10px;
+}
+
+.details-content {
+  max-width: 600px;
+}
+
+.details-content h1 {
+  margin-bottom: 20px;
+}
+
+.details-content p {
+  line-height: 1.7;
+
+  margin-bottom: 20px;
+}
+
+.details-btn {
+  background-color: black;
+
+  color: white;
+
+  border: none;
+
+  padding: 15px 30px;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.details-btn:hover {
+  background-color: #333;
+}
+
+@media (max-width: 768px) {
+  .details-page {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .details-page img {
+    width: 220px;
+  }
+}

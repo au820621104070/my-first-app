@@ -140,7 +140,9 @@ function decreaseQuantity(id) {
 
         <Route
           path="/product/:id"
-          element={<ProductDetails />}
+          element={<ProductDetails
+  addToCart={handleAddToCart}
+/>}
         />
 
         <Route
