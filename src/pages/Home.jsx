@@ -17,6 +17,12 @@ function Home(props) {
   const [searchTerm, setSearchTerm] =
     useState("")
 
+  const [selectedCategory, setSelectedCategory] =
+    useState("all")
+
+  const [sortOption, setSortOption] =
+    useState("")
+
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((response) => {
@@ -43,11 +49,40 @@ function Home(props) {
   }, [])
 
   const filteredProducts = products.filter(
-    (product) =>
-      product.title
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase())
+    (product) => {
+      const matchesSearch =
+        product.title
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase())
+
+      const matchesCategory =
+        selectedCategory === "all" ||
+        product.category === selectedCategory
+
+      return (
+        matchesSearch &&
+        matchesCategory
+      )
+    }
   )
+
+  const sortedProducts = [
+    ...filteredProducts
+  ].sort((a, b) => {
+    if (sortOption === "low-high") {
+      return a.price - b.price
+    }
+
+    if (sortOption === "high-low") {
+      return b.price - a.price
+    }
+
+    if (sortOption === "a-z") {
+      return a.title.localeCompare(b.title)
+    }
+
+    return 0
+  })
 
   return (
     <div>
@@ -68,6 +103,62 @@ function Home(props) {
         />
       </div>
 
+      <div className="category-filter">
+        <select
+          onChange={(event) =>
+            setSelectedCategory(
+              event.target.value
+            )
+          }
+        >
+          <option value="all">
+            All Categories
+          </option>
+
+          <option value="electronics">
+            Electronics
+          </option>
+
+          <option value="jewelery">
+            Jewelry
+          </option>
+
+          <option value="men's clothing">
+            Men's Clothing
+          </option>
+
+          <option value="women's clothing">
+            Women's Clothing
+          </option>
+        </select>
+      </div>
+
+      <div className="sort-filter">
+        <select
+          onChange={(event) =>
+            setSortOption(
+              event.target.value
+            )
+          }
+        >
+          <option value="">
+            Sort Products
+          </option>
+
+          <option value="low-high">
+            Price: Low to High
+          </option>
+
+          <option value="high-low">
+            Price: High to Low
+          </option>
+
+          <option value="a-z">
+            Name: A to Z
+          </option>
+        </select>
+      </div>
+
       {loading && (
         <h2 className="message">
           Loading products...
@@ -81,7 +172,7 @@ function Home(props) {
       )}
 
       <div className="products">
-        {filteredProducts.map((product) => (
+        {sortedProducts.map((product) => (
           <ProductCard
             key={product.id}
             id={product.id}
