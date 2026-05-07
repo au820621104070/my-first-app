@@ -6,6 +6,16 @@ function ProductCard(props) {
       <Link to={`/product/${props.id}`}>
         <img
           src={props.image}
+          srcSet={`
+            ${props.image} 480w,
+            ${props.image} 768w,
+            ${props.image} 1200w
+          `}
+          sizes="
+            (max-width: 768px) 100vw,
+            (max-width: 1200px) 50vw,
+            25vw
+          "
           alt={props.name}
           loading="lazy"
         />
@@ -16,7 +26,7 @@ function ProductCard(props) {
       <p>${props.price}</p>
 
       <button onClick={props.addToCart}>
-        Add to Cart
+        🛒 Add to Cart
       </button>
 
       <button
