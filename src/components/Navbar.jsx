@@ -11,13 +11,9 @@ function Navbar(props) {
 
   return (
     <nav className="navbar">
-      {/* Logo */}
-
       <h2 className="logo">
         ShopEasy
       </h2>
-
-      {/* Navigation Links */}
 
       <div className="nav-links">
         <Link to="/">Home</Link>
@@ -50,17 +46,16 @@ function Navbar(props) {
           Signup
         </Link>
 
-        {/* Dark Mode */}
-
         <button
           onClick={props.toggleDarkMode}
         >
           🌙
         </button>
 
-        {/* Logout */}
-
-        <button onClick={handleLogout}>
+        <button
+          className="logout-btn"
+          onClick={handleLogout}
+        >
           Logout
         </button>
       </div>
