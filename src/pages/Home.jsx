@@ -31,6 +31,21 @@ function Home(props) {
       price: 59,
       image:
         "https://images.unsplash.com/photo-1527814050087-3793815479db"
+    },
+
+    {
+        id: 4,
+        name: "Bluetooth Speaker",
+        price: 79,
+        image:
+         "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1"
+    },
+    {
+        id: 5,
+        name: "Laptop Backpack",
+        price: 89,
+        image:
+        "https://images.unsplash.com/photo-1667411424771-cadd97150827"
     }
   ]
 
