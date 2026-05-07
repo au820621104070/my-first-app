@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 function Navbar(props) {
   return (
     <header className="navbar">
@@ -6,10 +8,19 @@ function Navbar(props) {
       </div>
 
       <nav className="nav-links">
-        <a href="#">Home</a>
-        <a href="#">Products</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+        <Link to="/">Home</Link>
+
+        <Link to="/products">
+          Products
+        </Link>
+
+        <Link to="/about">
+          About
+        </Link>
+
+        <Link to="/contact">
+          Contact
+        </Link>
       </nav>
 
       <div className="nav-right">
@@ -21,6 +32,7 @@ function Navbar(props) {
 
         <div className="cart">
           🛒
+
           <span className="cart-badge">
             {props.cartCount}
           </span>

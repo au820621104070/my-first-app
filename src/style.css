@@ -159,3 +159,22 @@ body {
   margin-top: 40px;
   font-size: 36px;
 }
+.footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+.search-container {
+  text-align: center;
+  margin: 30px 0;
+}
+.product-search {
+  width: 300px;
+  max-width: 90%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
