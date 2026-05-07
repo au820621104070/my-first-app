@@ -1,10 +1,18 @@
 function Hero() {
   return (
     <section className="hero">
-      <h2>Welcome to ShopEasy</h2>
-      <p>Discover the best products at amazing prices.</p>
+      <div className="hero-content">
+        <h1>Biggest Sale of the Year</h1>
 
-      <button>Shop Now</button>
+        <p>
+          Discover amazing products at
+          unbeatable prices.
+        </p>
+
+        <button className="hero-btn">
+          Shop Now
+        </button>
+      </div>
     </section>
   )
 }

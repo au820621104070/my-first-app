@@ -30,13 +30,13 @@ function Navbar(props) {
           className="search-bar"
         />
 
-        <div className="cart">
+        <Link to="/cart" className="cart">
           🛒
 
           <span className="cart-badge">
             {props.cartCount}
           </span>
-        </div>
+        </Link>
 
         <div className="menu-icon">
           ☰

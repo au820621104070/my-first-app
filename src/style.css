@@ -68,24 +68,92 @@ body {
 /* Hero */
 
 .hero {
+  height: 90vh;
+
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("https://images.unsplash.com/photo-1523381210434-271e8be1f52b");
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   text-align: center;
-  padding: 100px 20px;
+  color: white;
+
+  padding: 20px;
 }
 
-.hero h2 {
-  font-size: 48px;
+.hero-content {
+  animation: fadeIn 1.5s ease;
+}
+
+.hero h1 {
+  font-size: 60px;
+  margin-bottom: 20px;
 }
 
 .hero p {
-  font-size: 20px;
+  font-size: 22px;
+  margin-bottom: 30px;
 }
 
-.hero button {
+.hero-btn {
+  background-color: white;
+  color: black;
+
+  border: none;
+
+  padding: 15px 35px;
+
+  font-size: 18px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.hero-btn:hover {
   background-color: black;
   color: white;
-  border: none;
-  padding: 15px 30px;
-  cursor: pointer;
+}
+
+/* Animation */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .hero-btn {
+    padding: 12px 25px;
+    font-size: 16px;
+  }
 }
 
 /* Products */
@@ -177,4 +245,24 @@ body {
   border-radius: 8px;
   border: 1px solid #ccc;
   font-size: 16px;
+}
+.cart-item {
+  background-color: white;
+  width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.cart-item button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.total-price {
+  margin-top: 30px;
+  font-size: 28px;
 }
